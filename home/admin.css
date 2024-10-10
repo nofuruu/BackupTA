@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #2C3E50; /* Warna utama sidebar */
+    height: 100vh; /* Penuh ke bawah */
+    padding-top: 20px;
+    color: #fff;
+}
+
+.logo h1 {
+    color: #fff;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #bdc3c7;
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #8e44ad; /* Warna hover */
+    color: #fff;
+    border-radius: 5px;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #ecf0f1;
+}
+
+.content h1 {
+    font-size: 24px;
+}
