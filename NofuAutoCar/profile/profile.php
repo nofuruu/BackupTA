@@ -1,95 +1,93 @@
-<?php
-  include '../connection/koneksi.php';
-  session_start();
-
-  // Check if the session 'id_user' is set
-  if (!isset($_SESSION['id_user'])) {
-    // Redirect to login if the user is not logged in
-    header("Location: login.php");
-    exit();
-  }
-
-  $id_user = $_SESSION['id_user'];
-
-  // Query for user information
-  $query = "SELECT profilepict, username, email, tanggal_bergabung FROM users WHERE id_user = ?";
-  $stmt = $koneksi->prepare($query); // Prepare the SQL statement
-  $stmt->bind_param("i", $id_user); // Bind the parameter to prevent SQL injection
-  $stmt->execute(); // Execute the query
-  $result = $stmt->get_result(); // Get the result
-
-  if ($result->num_rows > 0) {
-    $user = $result->fetch_assoc();
-    $profilePhoto = $user['profilepict'] ? $user['profilepict'] : 'default.png';
-  } else {
-    // Handle case where the user is not found
-    echo "User not found.";
-    exit();
-  }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Profile</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="profile.css">
-  <style>
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="profile.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg">
-  <div class="container-fluid">
+<?php
+include '../connection/koneksi.php';
+
+session_start();
+$id_user = $_SESSION['id_user'];
+
+// Query untuk mendapatkan data pengguna
+$query = "SELECT username, email, tanggal_bergabung, profilepict FROM users WHERE id_user = '$id_user'";
+$result = mysqli_query($koneksi, $query);
+
+if ($result && mysqli_num_rows($result) > 0) {
+    $user = mysqli_fetch_assoc($result);
+    $username = $user['username'];
+    $email = $user['email'];
+    $tanggal_bergabung = $user['tanggal_bergabung'];
     
-  </div>
+    // Periksa apakah pengguna sudah memiliki foto profil, jika tidak, gunakan default.png
+    $profilepict = !empty($user['profilepict']) ? "../uploads/" . $user['profilepict'] : "../uploads/default.png";
+} else {
+    // Jika tidak ada hasil dari query atau pengguna belum memiliki foto profil
+    $profilepict = "../uploads/default.png";
+}
+?>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">NofuAuto</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../home/home.php">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="profile.php">My Profile</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
-<div class="container">
-  <h2>My Profile</h2>
-  <div class="profile-card">
-  <div class="profile-images">
-    <!-- Tampilkan foto profil -->
-    <img src="uploads/<?php echo $profilePhoto; ?>?t=<?php echo time(); ?>" alt="Profile Photo" style="width: 100px; height: 100px; border-radius: 50%;">
+<div class="container mt-5">
+    <h2 class="text-center text-danger">My Profile</h2>
+    <div class="profile-card">
+    <div class="profile-images">
+    <img src="<?php echo htmlspecialchars($profilepict); ?>?t=<?php echo time(); ?>" alt="pfp" class="img-fluid profile-image">
+</div>
+        <div class="profile-info mt-3">
+            <h4 class="text-light">Username: <?php echo $username; ?></h4>
+            <p class="text-secondary">Email: <?php echo $email; ?></p>
+            <p class="text-secondary">Bergabung sejak: <?php echo $tanggal_bergabung; ?></p>
+        </div>
+        <div class="action-buttons mt-4">
+            <a href="profile-edit.php" class="btn btn-danger">Edit Profile</a>
+            <a href="../home/home.php" class="btn btn-success">Home</a>
+        </div>
     </div>
-    <!-- Tampilkan informasi data diri -->
-    <div class="profile-info mt-3">
-      <h4>Username: <?php echo $user['username']; ?></h4>
-      <p>Email: <?php echo $user['email']; ?></p>
-      <p>Bergabung sejak: <?php echo $user['tanggal_bergabung']; ?></p>
-    </div>
-
-    <!-- Tombol Edit -->
-    <div class="edit-button mt-3">
-      <a href="profile_edit.php" class="btn btn-primary">Edit</a>
-    </div>
-    <a href="home.php" type="button" class="btn btn-success mt-3">Home</a>
-
-  </div>
 </div>
 
+<!-- footer -->
 <footer>
   <div class="footer-content">
-    <h3>NofuCarshop</h3>
-    <p>lorem ipsum niat ingsun ngising ing tegalgondo tuhan kirimkanlah aku kekasih yang baik hati yang mencintai aku apa adanya
-      mawar ini semakin layu
-    </p>
+    <h3>NofuAuto</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     <ul class="socials">
-      <li><a href=""><i class="fa fa-facebook"></i></a></li>
-      <li><a href=""><i class="fa fa-twitter"></i></a></li>
-      <li><a href=""><i class="fa fa-instagram"></i></a></li>
-      <li><a href=""><i class="fa fa-github"></i></a></li>
+      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+      <li><a href="#"><i class="fa fa-github"></i></a></li>
     </ul>
   </div>
-
   <div class="footer-bottom">
-    <p>copyright &copy;2024 nofuruu. designed by <span>Naufal Fatihul Ihsan</span></p>
+    <p>copyright &copy;2024 NofuAuto. Designed by <span>Naufal Fatihul Ihsan</span></p>
   </div>
  </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

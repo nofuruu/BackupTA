@@ -97,8 +97,8 @@
           <label for="password">Password</label>
         </div>
         <button type="submit" class="btn btn-submit" id="btn-submit">Login</button>
-        <p class="text-center mt-3">Lupa Password? <a href="proses_register.php" class="link">Pusat Bantuan</a></p>
-        <p class="text-center mt-3">Belum memiliki akun? <a href="register.php" class="link">Register</a></p>
+        <p class="text-center mt-3">Lupa Password? <a href="proses_register.php" class="link">Rubah Password</a></p>
+        <p class="text-center mt-3">Belum memiliki akun? <a href="../register/register.php" class="link">Register</a></p>
         <p class="text-center mt-3"><a href="../home/home.php" class="link">Lanjutkan tanpa akun</a></p>
       </form>
     </div>

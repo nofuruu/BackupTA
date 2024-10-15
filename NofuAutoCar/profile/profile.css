@@ -3,98 +3,60 @@ body {
     background-color: #121212; /* Dark background for modern look */
     color: #f0f0f0; /* Light text color for contrast */
     margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 600px; /* Limit the width of the profile card */
-    margin: auto;
-    background: #1f1f1f; /* Dark card background */
-    border-radius: 8px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
-    padding: 30px; /* More padding for a spacious feel */
-    text-align: center;
-}
-
-h2 {
-    color: #ff4c4c; /* Matching red for headings */
-    margin-bottom: 20px;
+    padding: 0; /* Reset padding to prevent space at the top */
 }
 
 .profile-card {
-    margin: 0 auto;
+    background-color: #1f1f1f; /* Dark card background */
+    border-radius: 10px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5); /* Strong shadow for depth */
+    padding: 30px; /* More padding for a spacious feel */
+    text-align: center;
+    margin-bottom: 50px;
 }
 
-.profile-images img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #ff4c4c; /* Red border around profile image */
-    margin-bottom: 20px;
+.profile-images {
+    display: flex; /* Mengatur tampilan flex */
+    justify-content: center; /* Memusatkan gambar */
+    margin-bottom: 15px; /* Ruang di bawah gambar */
+}
+
+.profile-image {
+    width: 150px; /* Ukuran lebar gambar */
+    height: 150px; /* Ukuran tinggi gambar */
+    border-radius: 50%; /* Membuat gambar bulat */
+    border: 2px solid #e74c3c; /* Mengurangi ketebalan border menjadi 2px */
+    object-fit: cover; /* Memastikan gambar terisi dengan baik */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Bayangan lembut untuk gambar */
 }
 
 .profile-info h4 {
     font-weight: bold;
-    color: #e0e0e0; /* Softer light grey for visibility */
+    color: #ffffff; /* White text for better visibility */
 }
 
 .profile-info p {
-    color: #bbb; /* Softer grey for other text */
+    color: #cccccc; /* Softer grey for other text */
 }
 
-.edit-button,
-.btn {
-    display: inline-block;
-    background-color: #ff4c4c; /* Red button color */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none; /* Remove underline from links */
-    transition: background-color 0.4s, transform 0.3s, box-shadow 0.3s;
+.action-buttons .btn {
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.edit-button a:hover,
-.btn:hover {
-    background-color: #d43e3e; /* Darker red on hover */
+.action-buttons .btn:hover {
     transform: translateY(-3px); /* Slight lift effect on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow on hover */
+    background-color: #d43e3e; /* Darker red on hover for edit button */
 }
 
-.edit-button a {
-    margin-right: 10px; /* Space between buttons */
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    .profile-images img {
-        width: 80px;
-        height: 80px;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-
-    .edit-button,
-    .btn {
-        padding: 8px 16px; /* Adjust button padding on smaller screens */
-    }
-}
-
-/* Footer styling */
 footer {
     background-color: #1b1b1b; /* Dark background for modern look */
     color: #eaeaea; /* Light grey text */
-    padding: 20px 0; /* Smaller padding for a compact footer */
+    padding: 30px 0; /* Smaller padding for a compact footer */
     font-family: 'Roboto', sans-serif;
     width: 100%;
     position: relative;
     bottom: 0;
+    margin-top: 20px;
 }
 
 .footer-content {
@@ -156,6 +118,10 @@ footer {
     padding: 10px 0; /* Smaller padding for compact look */
     border-top: 1px solid #2a2a2a; /* Elegant subtle line */
     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
     margin: 0; /* Ensure no gaps */
 }
 
@@ -169,3 +135,20 @@ footer {
     color: #ff4c4c; /* Matching red for designer name */
     font-weight: bold;
 }
+
+
+@media (max-width: 768px) {
+    .footer-content h3 {
+        font-size: 1.1rem; 
+    }
+
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+
+    .socials a {
+        font-size: 1.1rem; /* Smaller icons on mobile */
+    }
+}
+
+

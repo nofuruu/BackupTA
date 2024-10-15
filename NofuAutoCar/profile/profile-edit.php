@@ -1,8 +1,10 @@
 <?php
+include '../connection/koneksi.php';
+
+
   session_start();
   $username = $_SESSION['username'];
   $id_user = $_SESSION['id_user'];
-  include 'koneksi.php';
 
   // Jika form di-submit
   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -16,7 +18,7 @@
       
       if (in_array($fileExtension, ['jpg', 'jpeg', 'png', 'gif'])) {
         if (move_uploaded_file($fileTmp, $uploadDir . $fileName)) {
-          $query = "UPDATE user SET profilepict = '$fileName' WHERE id_user = $id_user";
+          $query = "UPDATE users SET profilepict = '$fileName' WHERE id_user = $id_user";
           $koneksi->query($query);
         } else {
           echo "Gagal mengunggah gambar.";
@@ -30,20 +32,20 @@
     $username = $_POST['username'];
     $email = $_POST['email'];
 
-    $query = "UPDATE user SET username = '$username', email = '$email' WHERE id_user = $id_user";
+    $query = "UPDATE users SET username = '$username', email = '$email' WHERE id_user = $id_user";
     if ($koneksi->query($query)) {
       echo "Data berhasil diupdate!";
-      header('Location: profile_edit.php');
+      header('Location: profile-edit.php');
     } else {
       echo "Gagal mengupdate data.";
     }
   }
 
   // Query untuk mendapatkan informasi pengguna
-  $query = "SELECT profilepict, username, email, tanggal_bergabung FROM user WHERE id_user = $id_user";
+  $query = "SELECT profilepict, username, email, tanggal_bergabung FROM users WHERE id_user = $id_user";
   $result = $koneksi->query($query);
   $user = $result->fetch_assoc();
-  $profilePhoto = $user['profilepict'] ? $user['profilepict'] : 'default.png';
+  $profilePhoto = $user['profilepict'] ? $user['profilepict'] : 'default.jpg';
 ?>
 
 
@@ -77,7 +79,7 @@
     
     <div class="profile-edit">
     <!-- Form untuk mengganti foto profil -->
-    <form action="profile_edit.php" method="POST" enctype="multipart/form-data">
+    <form action="profile-edit.php" method="POST" enctype="multipart/form-data">
       <input type="file" name="profilepict" id="profilepict" accept="image/*">
       </div>
 
@@ -91,7 +93,7 @@
         <input type="email" name="email" id="email" class="form-control" value="<?php echo $user['email']; ?>">
       </div>
       <button type="submit" class="btn btn-primary mt-3">Update Profile</button><br>
-      <a href="home.php" type="button" class="btn btn-success mt-3">Home</a>
+      <a href="../home/home.php" type="button" class="btn btn-success mt-3">Home</a>
 
     </form>
   </div>

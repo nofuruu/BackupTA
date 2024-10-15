@@ -10,10 +10,11 @@
             margin-left: 100px;
         }
 
-    body {
-      background: rgb(200,222,252);
-      background: linear-gradient(90deg, rgba(200,222,252,1) 0%, rgba(242,236,236,1) 52%, rgba(242,248,255,1) 100%);
-    }
+        body {
+      background: rgb(30,63,87);
+      background: linear-gradient(90deg, rgba(30,63,87,1) 10%, rgba(8,33,51,1) 47%, rgba(46,45,45,1) 93%);
+        }
+
     .container {
       margin-top: 150px;
     }
@@ -81,9 +82,9 @@
 <div class="container">
     <div class="login-card">
         <div class="navbar-brand">
-            <img src="dslogo.png" alt="logo" id="dslogo">
+            <img src="../assets/logoB.png" alt="logo" id="dslogo">
             
-            <form action="proses_register.php" method="POST">
+            <form action="proses-register.php" method="POST">
 
                 <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="username" name="username" required>
@@ -96,8 +97,8 @@
                 </div>
 
                 <div class="form-floating mb-3">
-                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" required>
-                <label for="tanggal_lahir">Enter your birthdate</label>
+                <input type="password" class="form-control" id="verpass" name="verpass" required>
+                <label for="tanggal_lahir">Re-Confirm Password</label>
                 </div>
 
                 <div class="form-floating mb-3">
