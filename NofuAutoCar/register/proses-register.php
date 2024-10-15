@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 //memasukan ke database
-$sql = "INSERT INTO users (username, password, email, bergabung_sejak) VALUES ('$username', '$password', '$email', NOW())";
+$sql = "INSERT INTO users (username, password, email, tanggal_bergabung) VALUES ('$username', '$password', '$email', NOW())";
 
 // Eksekusi query
 if (mysqli_query($koneksi, $sql)) {
