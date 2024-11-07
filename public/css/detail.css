@@ -1,0 +1,101 @@
+body {
+    background-color: #24252a; /* Light background for a clean look */
+}
+
+.detail-container {
+    margin-top: 50px;
+    background-color: rgb(254, 254, 254);
+    padding: 20px;
+    border-radius: 15px; /* Slightly rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    transition: transform 0.2s; /* Smooth scaling on hover */
+}
+
+.detail-container:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.detail-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Rounded corners for the image */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for image */
+}
+
+.details-header {
+    font-size: 1.5rem; /* Larger font size for the header */
+    font-weight: bold; /* Bold font for emphasis */
+    color: #343a40; /* Darker color for text */
+    margin-bottom: 20px; /* Spacing below the header */
+}
+
+.detail-item {
+    margin-bottom: 15px; /* Spacing between detail items */
+}
+
+.detail-item strong {
+    color: #007bff; /* Highlighting labels with brand color */
+}
+
+.btn-custom {
+    background-color: #007bff; /* Brand color for buttons */
+    color: white;
+    border-radius: 25px; /* Rounded button */
+    padding: 10px 20px; /* Increased padding for buttons */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+}
+
+.btn-custom:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    .detail-container {
+        padding: 15px; /* Reduced padding for smaller screens */
+    }
+    .detail-item {
+        margin-bottom: 10px; /* Reduced margin for smaller screens */
+    }
+}
+
+.slider {
+    position: relative;
+    max-width: 600px; /* Ganti sesuai kebutuhan */
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+}
+
+.detail-image {
+    width: 100%; /* Sesuaikan ukuran gambar */
+    height: auto; /* Mengatur tinggi otomatis */
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}

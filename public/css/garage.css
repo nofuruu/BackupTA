@@ -1,0 +1,337 @@
+body{
+    background-color: #24252a;
+    height: 100%; /* Full height for the page */
+    margin: 0; /* Remove default margin */
+    padding: 0;
+    background-color: #24252a;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x:hidden;
+}
+
+
+
+
+/* navbar styling */
+#dslogo {
+    width: 150px;
+    height: auto; /* Keep auto height for responsive scaling */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #1e1f26;
+    padding: 15px 0; /* Adjust padding for better spacing */
+    font-family: 'Roboto', sans-serif; /* Clean and modern font */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+
+}
+
+/* Navbar Links - Bold and Uppercase */
+.navbar-nav .nav-link {
+    color: #ffffff; /* White text for visibility */
+    font-weight: bold; /* Make text bold */
+    font-size: 0.9rem; /* Slightly smaller font size for clean look */
+    padding: 10px 20px;
+    position: relative;
+    text-transform: uppercase; /* Ensure text is in uppercase */
+    letter-spacing: 0.05rem; /* Slight spacing between letters */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effects */
+.navbar-nav .nav-link:hover {
+    color: #ff4c4c; /* Bright red hover effect */
+    background-color: transparent; /* No background change on hover */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff4c4c; /* Red underline effect */
+    left: 50%;
+    bottom: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Navbar Logo Hover Effect */
+.navbar-brand img {
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.1); /* Slight enlargement to create a dynamic effect */
+}
+
+/* Navbar Toggler (for mobile view) */
+.navbar-toggler {
+    border: none;
+    background-color: #ff4c4c; /* Bright red for the toggler button */
+    color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background-color: #1e1f26; /* Match dropdown with navbar background */
+    border-radius: 5px; /* Rounded edges for dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for dropdown */
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ff4c4c; /* Bright red hover effect for dropdown items */
+    color: white;
+}
+
+
+#pfp {
+    width: 50px; /* Atur lebar sesuai keinginan */
+    height: 50px; /* Atur tinggi sesuai keinginan */
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    object-fit: cover; /* Memastikan gambar terpotong dengan baik dalam bentuk bulat */
+    border: 2px solid #fff; /* Opsional: Menambahkan border putih */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan efek bayangan */
+}
+
+
+#pfpdr {
+    min-width: 150px;
+    z-index: 1000;
+    transform: translateY(10px); /* Sedikit penyesuaian untuk posisi dropdown */
+}
+
+/* Styling khusus untuk layar kecil */
+* {
+    border: 0;
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
+/* end nav style */
+
+
+
+    /* footer */
+    footer {
+        margin-top: 40rem;
+        background-color: #1b1b1b; /* Dark background for modern look */
+        color: #eaeaea; /* Light grey text */
+        padding: 30px 0; /* Smaller padding for a compact footer */
+        font-family: 'Roboto', sans-serif;
+        width: 100%;
+        position: relative;
+        bottom: 0;
+    }
+    
+    .footer-content {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .footer-content h3 {
+        font-size: 1.3rem; /* Smaller title size */
+        color: #ffffff;
+        margin-bottom: 10px; /* Slight margin below title */
+        letter-spacing: 1px; /* Narrower letter spacing */
+        font-weight: 500;
+    }
+    
+    .footer-content p {
+        font-size: 0.85rem; /* Reduced text size */
+        color: #cccccc;
+        max-width: 500px;
+        margin: 0 auto 15px auto;
+        line-height: 1.5;
+    }
+    
+    .socials {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 10px; /* Smaller gap between icons */
+        padding: 0;
+    }
+    
+    .socials li {
+        margin: 0;
+    }
+    
+    .socials a {
+        color: #eaeaea;
+        font-size: 1.3rem; /* Smaller icon size */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .socials a:hover {
+        color: #ff4c4c; /* Matching red hover color */
+        transform: scale(1.1); /* Gentle scaling */
+    }
+    
+    /* Divider Line Above Footer Bottom */
+    .footer-divider {
+        width: 90%; /* Slim width */
+        height: 1px;
+        background-color: #ff4c4c; /* Matching red color */
+        margin: 0 auto 20px auto; /* Centered with margin above the footer-bottom */
+    }
+    
+    /* Footer Bottom */
+    .footer-bottom {
+        background-color: #141414; /* Slightly darker background */
+        text-align: center;
+        padding: 10px 0; /* Smaller padding for compact look */
+        border-top: 1px solid #2a2a2a; /* Elegant subtle line */
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 0; /* Ensure no gaps */
+    }
+    
+    .footer-bottom p {
+        font-size: 0.85rem; /* Smaller text size */
+        color: #b1b1b1;
+        margin: 0;
+    }
+    
+    .footer-bottom span {
+        color: #ff4c4c; /* Matching red for designer name */
+        font-weight: bold;
+    }
+    
+    
+    @media (max-width: 768px) {
+        .footer-content h3 {
+            font-size: 1.1rem; 
+        }
+    
+        .footer-content p {
+            font-size: 0.8rem;
+        }
+    
+        .socials a {
+            font-size: 1.1rem; /* Smaller icons on mobile */
+        }
+    }
+
+
+    /* Card Container */
+.card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px;
+    cursor: pointer;
+}
+
+/* Card Image */
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Card Body */
+.card-body {
+    padding: 15px;
+}
+
+/* Card Title and Price */
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+    margin: 10px 0;
+}
+
+.card-price {
+    font-size: 1.2rem;
+    color: #FF6F61;
+    font-weight: bold;
+}
+
+/* Card Hover Effects */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+/* Remove Button (Icon) */
+.remove-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.remove-btn i {
+    font-size: 1.5rem;
+    color: #c51313;
+    height: 1rem;
+    width: 1rem;
+}
+
+.btn btn-danger{
+    height: auto;
+    width: 2px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Link styling to remove default card link underline */
+.card-link {
+    text-decoration: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        margin: 10px;
+    }
+
+    .card img {
+        height: 180px;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .card-price {
+        font-size: 1.1rem;
+    }
+}
+
+

@@ -1,0 +1,546 @@
+
+body {
+    height: 100%; /* Full height for the page */
+    margin: 0; /* Remove default margin */
+    padding: 0;
+    background-color: #24252a;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    overflow-x:hidden;
+}
+
+#dslogo {
+    width: 150px;
+    height: auto; /* Keep auto height for responsive scaling */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #1e1f26;
+    padding: 15px 0; /* Adjust padding for better spacing */
+    font-family: 'Roboto', sans-serif; /* Clean and modern font */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Navbar Links - Bold and Uppercase */
+.navbar-nav .nav-link {
+    color: #ffffff; /* White text for visibility */
+    font-weight: bold; /* Make text bold */
+    font-size: 0.9rem; /* Slightly smaller font size for clean look */
+    padding: 10px 20px;
+    position: relative;
+    text-transform: uppercase; /* Ensure text is in uppercase */
+    letter-spacing: 0.05rem; /* Slight spacing between letters */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effects */
+.navbar-nav .nav-link:hover {
+    color: #ff4c4c; /* Bright red hover effect */
+    background-color: transparent; /* No background change on hover */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff4c4c; /* Red underline effect */
+    left: 50%;
+    bottom: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Navbar Logo Hover Effect */
+.navbar-brand img {
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.1); /* Slight enlargement to create a dynamic effect */
+}
+
+/* Navbar Toggler (for mobile view) */
+.navbar-toggler {
+    border: none;
+    background-color: #ff4c4c; /* Bright red for the toggler button */
+    color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background-color: #1e1f26; /* Match dropdown with navbar background */
+    border-radius: 5px; /* Rounded edges for dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for dropdown */
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ff4c4c; /* Bright red hover effect for dropdown items */
+    color: white;
+}
+
+
+/* Carousel Image Styling */
+.carousel-inner {
+    width: 100%; /* Make the carousel span the full width of the screen */
+    margin: 0 auto; /* Center the carousel */
+  }
+  
+  .carousel-inner img {
+    width: auto; /* Make the image fill the carousel width */
+    height: 90vh; /* Set the height to 60% of the viewport height for a balanced look */
+    object-fit: cover; /* Crop the images while maintaining aspect ratio */
+    border-radius: 8px; /* Optional: Add rounded corners for a modern touch */
+  }
+  
+  /* Button Styles */
+.btn {
+    padding: 8px 16px; /* Adjusted padding for a more compact button */
+    text-transform: uppercase; /* Uppercase text for buttons */
+    font-weight: bold; /* Make text bold */
+    font-size: 0.8rem; /* Font size for buttons */
+    border: 2px solid transparent; /* Border for buttons */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border-radius: 25px; /* Rounded corners for a modern look */
+    display: inline-block; /* Allow margin/padding adjustments */
+}
+
+/* Login Button Styles */
+.btn-login {
+    background-color: transparent; /* Transparent background */
+    color: #ffffff; /* White text */
+    border: 2px solid #ff4c4c; /* Red border */
+    /* margin-left: 430px; */
+}
+
+.btn-login:hover {
+    background-color: #ff4c4c; /* Red background on hover */
+    color: #ffffff; /* White text on hover */
+    box-shadow: 0 4px 8px rgba(255, 76, 76, 0.3); /* Subtle shadow on hover */
+}
+
+/* Register Button Styles */
+.btn-register {
+    background-color: #ff4c4c; /* Red background */
+    color: #ffffff; /* White text */
+    border: 2px solid #ff4c4c; /* Red border */
+}
+
+.btn-register:hover {
+    background-color: transparent; /* Transparent on hover */
+    color: #ff4c4c; /* Red text on hover */
+    box-shadow: 0 4px 8px rgba(255, 76, 76, 0.3); /* Subtle shadow on hover */
+}
+
+/* Button Animation */
+.btn:hover {
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+
+footer {
+    background-color: #1b1b1b; /* Dark background for modern look */
+    color: #eaeaea; /* Light grey text */
+    padding: 30px 0; /* Smaller padding for a compact footer */
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+}
+
+.footer-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-content h3 {
+    font-size: 1.3rem; /* Smaller title size */
+    color: #ffffff;
+    margin-bottom: 10px; /* Slight margin below title */
+    letter-spacing: 1px; /* Narrower letter spacing */
+    font-weight: 500;
+}
+
+.footer-content p {
+    font-size: 0.85rem; /* Reduced text size */
+    color: #cccccc;
+    max-width: 500px;
+    margin: 0 auto 15px auto;
+    line-height: 1.5;
+}
+
+.socials {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Smaller gap between icons */
+    padding: 0;
+}
+
+.socials li {
+    margin: 0;
+}
+
+.socials a {
+    color: #eaeaea;
+    font-size: 1.3rem; /* Smaller icon size */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.socials a:hover {
+    color: #ff4c4c; /* Matching red hover color */
+    transform: scale(1.1); /* Gentle scaling */
+}
+
+/* Divider Line Above Footer Bottom */
+.footer-divider {
+    width: 90%; /* Slim width */
+    height: 1px;
+    background-color: #ff4c4c; /* Matching red color */
+    margin: 0 auto 20px auto; /* Centered with margin above the footer-bottom */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    background-color: #141414; /* Slightly darker background */
+    text-align: center;
+    padding: 10px 0; /* Smaller padding for compact look */
+    border-top: 1px solid #2a2a2a; /* Elegant subtle line */
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0; /* Ensure no gaps */
+}
+
+.footer-bottom p {
+    font-size: 0.85rem; /* Smaller text size */
+    color: #b1b1b1;
+    margin: 0;
+}
+
+.footer-bottom span {
+    color: #ff4c4c; /* Matching red for designer name */
+    font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+    .footer-content h3 {
+        font-size: 1.1rem; 
+    }
+
+    .footer-content p {
+        font-size: 0.8rem;
+    }
+
+    .socials a {
+        font-size: 1.1rem; /* Smaller icons on mobile */
+    }
+}
+
+#pfp {
+    width: 50px; /* Atur lebar sesuai keinginan */
+    height: 50px; /* Atur tinggi sesuai keinginan */
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    object-fit: cover; /* Memastikan gambar terpotong dengan baik dalam bentuk bulat */
+    border: 2px solid #fff; /* Opsional: Menambahkan border putih */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan efek bayangan */
+}
+
+
+#pfpdr {
+    min-width: 150px;
+    z-index: 1000;
+    transform: translateY(10px); /* Sedikit penyesuaian untuk posisi dropdown */
+}
+
+/* Styling khusus untuk layar kecil */
+* {
+    border: 0;
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.discover-header {
+    padding: 15px 0; /* Padding lebih kecil */
+    color: white; /* Warna teks putih */
+    border-radius: 8px; /* Sudut melengkung */
+    margin: 10px 0; /* Margin yang lebih kecil */
+    text-align: center; /* Rata tengah teks */
+}
+
+.discover-header h1 {
+    font-size: 2rem; /* Ukuran font lebih kecil */
+    font-weight: 700; /* Bold */
+    text-transform: uppercase; /* Huruf kapital */
+    letter-spacing: 1.5px; /* Jarak antar huruf */
+    margin: 0; /* Tanpa margin tambahan */
+}
+
+/* card categories */
+
+.card-categories{
+    margin: 4rem;
+    padding: auto;
+}
+
+.card-categories .category-link {
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-categories .category-link:hover .card {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-categories .card {
+    background-color: var(--category-color);
+    overflow: hidden;
+    border-radius: 12px;
+    position: relative;
+    color: white;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.card-categories .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.card-categories .card:hover .card-overlay {
+    opacity: 0.5;
+}
+
+.card-categories .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    filter: grayscale(70%);
+    transition: filter 0.3s, transform 0.3s;
+    opacity: 0.8;
+}
+
+.card-categories .card:hover .card-img-top {
+    filter: grayscale(50%);
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.card-categories .card-body {
+    position: relative;
+    z-index: 2;
+    padding: 15px;
+}
+
+.card-categories .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.card-categories .card:hover .card-title {
+    color: #e9ecef;
+}
+
+.card-categories .category-link:hover .card {
+    background-color: var(--category-color);
+    opacity: 0.95;
+}
+
+
+
+
+
+
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s; /* Animasi saat hover */
+    border: none; /* Menghilangkan border default */
+    border-radius: 10px; /* Sudut melengkung */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Efek zoom saat hover */
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Bayangan lebih kuat saat hover */
+}
+
+.card-img-top {
+    border-top-left-radius: 10px; /* Sudut melengkung pada gambar */
+    border-top-right-radius: 10px; /* Sudut melengkung pada gambar */
+}
+
+.card-body {
+    text-transform: uppercase; /* Semua teks dalam huruf kapital */
+}
+
+.card-title, .card-text {
+    font-size: 0.9rem; /* Ukuran font untuk lebih rapi */
+}
+
+/* General Hero Section Styling */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  height: 100vh;
+}
+
+.hero-overlay-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+}
+
+.hero-content {
+  text-align: center; /* Center the text */
+  color: white;
+  padding: 20px;
+  max-width: 700px;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  margin: 20px 0;
+}
+
+.hero-btn {
+  background-color: #f7b731;
+  color: white;
+  padding: 15px 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #e3a128;
+  transform: scale(1.05);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.8rem;
+  }
+  .hero-content p {
+    font-size: 1.1rem;
+  }
+  .hero-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+
+/* Smooth Animations */
+.hero-content {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+.vehicle-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 2rem;
+    display: flex;
+}
+
+.vehicle-card:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+.vehicle-card img {
+    height: 200px;
+    object-fit: cover; /* Ensures image fills the area with cropping */
+}
+
+.vehicle-card .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #24252a; /* Dark text color */
+    margin-bottom: 15px;
+}
+
+.vehicle-card .card-text {
+    color: #6c757d; /* Muted text color */
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Explore Button Styling */
+.btn-explore {
+    background-color: #ff4c4c;
+    color: white;
+    padding: 10px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 50px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-explore:hover {
+    background-color: #e03a3a;
+    transform: scale(1.05); /* Slight scaling effect */
+}

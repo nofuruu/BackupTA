@@ -1,0 +1,198 @@
+html, body {
+    height: 100%; /* Full height for the page */
+    margin: 0; /* Remove default margin */
+}
+
+body {
+    background-color: #24252a;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Logo Styling */
+#dslogo {
+    width: 150px;
+    height: auto; /* Keep auto height for responsive scaling */
+}
+
+/* Navbar Styling */
+.navbar {
+    background-color: #1e1f26;
+    padding: 15px 0; /* Adjust padding for better spacing */
+    font-family: 'Roboto', sans-serif; /* Clean and modern font */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Navbar Links - Bold and Uppercase */
+.navbar-nav .nav-link {
+    color: #ffffff; /* White text for visibility */
+    font-weight: bold; /* Make text bold */
+    font-size: 0.9rem; /* Slightly smaller font size for clean look */
+    padding: 10px 20px;
+    position: relative;
+    text-transform: uppercase; /* Ensure text is in uppercase */
+    letter-spacing: 0.05rem; /* Slight spacing between letters */
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover Effects */
+.navbar-nav .nav-link:hover {
+    color: #ff4c4c; /* Bright red hover effect */
+    background-color: transparent; /* No background change on hover */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #ff4c4c; /* Red underline effect */
+    left: 50%;
+    bottom: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Navbar Logo Hover Effect */
+.navbar-brand img {
+    height: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.1); /* Slight enlargement to create a dynamic effect */
+}
+
+/* Navbar Toggler (for mobile view) */
+.navbar-toggler {
+    border: none;
+    background-color: #ff4c4c; /* Bright red for the toggler button */
+    color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    background-color: #1e1f26; /* Match dropdown with navbar background */
+    border-radius: 5px; /* Rounded edges for dropdown */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for dropdown */
+}
+
+.dropdown-menu .dropdown-item {
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ff4c4c; /* Bright red hover effect for dropdown items */
+    color: white;
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff; /* Dark background for cards */
+    border: none; /* No border */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    overflow: hidden; /* Ensure images fit nicely */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.card-img-top {
+    width: 100%; /* Full width for image */
+    height: 200px; /* Set height for uniformity */
+    object-fit: cover; /* Ensure image covers area without distortion */
+}
+
+/* Card Body Styling */
+.card-body {
+    padding: 15px; /* Padding for card content */
+}
+
+/* Button Styles */
+.btn {
+    padding: 8px 16px; /* Adjusted padding for a more compact button */
+    text-transform: uppercase; /* Uppercase text for buttons */
+    font-weight: bold; /* Make text bold */
+    font-size: 0.8rem; /* Font size for buttons */
+    border: 2px solid transparent; /* Border for buttons */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    border-radius: 25px; /* Rounded corners for a modern look */
+    display: inline-block; /* Allow margin/padding adjustments */
+}
+
+/* Login Button Styles */
+.btn-login {
+    background-color: transparent; /* Transparent background */
+    color: #ffffff; /* White text */
+    border: 2px solid #ff4c4c; /* Red border */
+}
+
+.btn-login:hover {
+    background-color: #ff4c4c; /* Red background on hover */
+    color: #ffffff; /* White text on hover */
+    box-shadow: 0 4px 8px rgba(255, 76, 76, 0.3); /* Subtle shadow on hover */
+}
+
+/* Register Button Styles */
+.btn-register {
+    background-color: #ff4c4c; /* Red background */
+    color: #ffffff; /* White text */
+    border: 2px solid #ff4c4c; /* Red border */
+}
+
+.btn-register:hover {
+    background-color: transparent; /* Transparent on hover */
+    color: #ff4c4c; /* Red text on hover */
+    box-shadow: 0 4px 8px rgba(255, 76, 76, 0.3); /* Subtle shadow on hover */
+}
+
+/* Button Animation */
+.btn:hover {
+    transform: scale(1.05); /* Slight scale on hover */
+}
+
+/* Profile Picture Styles */
+#pfp {
+    width: 50px; /* Adjust width as desired */
+    height: 50px; /* Adjust height as desired */
+    border-radius: 50%; /* Make image circular */
+    object-fit: cover; /* Ensure image is well cropped */
+    border: 2px solid #fff; /* Optional: Add white border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add shadow effect */
+}
+
+#pfpdr {
+    min-width: 150px;
+    z-index: 1000;
+    transform: translateY(10px); /* Adjust position of dropdown */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 20px; /* Add spacing between cards on small screens */
+    }
+}
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+nav #navbar-kategori{
+    margin-top: 20rem;
+    position:fixed;
+    z-index: 9999;
+}
