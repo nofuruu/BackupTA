@@ -1,0 +1,29 @@
+
+    /* Memperlebar Select2 agar lebih lebar */
+    .select2-container--default .select2-selection--single {
+        width: 25rem !important; /* Lebar yang lebih besar, bisa disesuaikan sesuai kebutuhan */
+    }
+
+    /* Styling untuk tinggi dan padding dropdown */
+    .select2-container .select2-selection--single {
+        height: 5rem; /* Tinggi yang lebih tinggi agar gambar lebih jelas terlihat */
+        padding-left: 1rem;  /* Memberikan jarak lebih pada sisi kiri */
+        padding-right: 1rem; /* Memberikan jarak lebih pada sisi kanan */
+    }
+
+    /* Menyesuaikan gambar di dalam dropdown */
+    .select2-container--default .select2-results__option img {
+        width: 12rem;  /* Lebar gambar yang lebih besar */
+        height: 6rem;  /* Tinggi gambar yang lebih besar */
+        margin-right: 1rem; /* Memberikan jarak antar gambar dan teks */
+        object-fit: contain; /* Menjaga proporsi gambar */
+    }
+
+    /* Styling untuk teks di dalam dropdown, memastikan gambar dan teks sejajar */
+    .select2-container--default .select2-results__option {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 1rem; /* Menambahkan padding pada setiap pilihan */
+    }
+

@@ -19,12 +19,12 @@ include 'koneksi.php';
 session_start();
 
 ?>
-
 <!-- navbar -->
-<nav class="navbar navbar-expand-lg" style="position:fixed; width: 100%; z-index: 9999  ;">
+
+<nav class="navbar navbar-expand-lg" style="position: fixed; width: 100%; z-index: 9999;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="../nofuautocar/public/resource/logoA.png" alt="dslogo" id="dslogo">
+      <img src="../nofuautocar/public/resource/logoB.png" alt="dslogo" id="dslogo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,86 +35,77 @@ session_start();
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
         <li class="nav-item">
-        <a class="nav-link" href="./src/forms/user/garage.php">mygarage</a>
+          <a class="nav-link" href="./src/forms/user/garage.php">mygarage</a>
         </li>
-
         <li class="nav-item">
           <a class="nav-link" href="../nofuautocar/src/forms/user/store-page.php">marketplace</a>
         </li>
-        <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Lainya...
-  </a>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Garasi Saya</a></li>
-    <li><a class="dropdown-item" href="./src/forms/user/profile.php">Edit Profile</a></li>
-    
-    <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-        // Ambil informasi peran dari sesi
-        $role = $_SESSION['role']; // Misalkan peran disimpan dalam sesi
-
-        // Cek apakah pengguna adalah admin atau superadmin
-        if ($role === 'admin' || $role === 'superadmin') {
-            echo '<li><a class="dropdown-item" href="./src/forms/admin/admin.php">Pergi ke Halaman Admin</a></li>';
-        }
-    } ?>
-  </ul>
-</li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="../nofuautocar/src/forms/user/store-page.php">transaction</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../nofuautocar/src/forms/user/store-page.php">about</a>
+        </li>
       </ul>
-      
 
-
-
-
-      <!-- Foto Profil pengguna -->
+      <!-- Ikon Love dan Chat -->
       <?php
 if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-  
-    $id_user = $_SESSION['id_user'];
-    
-    // Query untuk mengambil foto profil dari database
-    $query = "SELECT profilepict FROM users WHERE id_user = '$id_user'";
-    $result = mysqli_query($koneksi, $query);
-    
-    // Cek apakah query berhasil dieksekusi dan ada hasil
-    if ($result && mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        
-        // Cek apakah pengguna memiliki foto profil, jika tidak, gunakan default.png
-        $profilepict = (!empty($row['profilepict'])) ? "./public/uploads/user/" . $row['profilepict'] : "./public/uploads/user/default.png";
-    } else {
-        // Jika tidak ada hasil dari query atau pengguna belum memiliki foto profil
-        $profilepict = "./public/uploads/user/default.png";
-    }
-    
-    // Tampilkan gambar profil
-    echo '<div class="d-flex ms-auto">
-    <div class="dropdown">
-        <a class="navbar-brand" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="' . htmlspecialchars($profilepict) . '" alt="pfp" id="pfp" class="rounded-circle" width="30" height="30">
+    echo '<div class="d-flex ms-auto align-items-center">
+       
+        <a href="./src/forms/user/chat.php" class="icon-link me-3">
+            <img src="./public/resource/chats.png" alt="Chat" class="icon-chat">
         </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" id="pfpdr">
-            <li><a class="dropdown-item" href="./src/forms/user/profile.php">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="./src/function/logout.php">Logout</a></li>
-            
-        </ul>
-    </div>
-  </div>';
-} else {
-    // Jika pengguna belum login, tampilkan tombol login dan register
-    echo '<div class="d-flex ms-auto">
-            <a href="./src/forms/login.php" class="btn btn-login">Login</a>
-            <a href="./src/forms/register.php" class="btn btn-register ms-2">Register</a>
-          </div>';
+    </div>';
 }
 ?>
 
+
+
+        <!-- Foto Profil pengguna -->
+        <?php
+        if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+          $id_user = $_SESSION['id_user'];
+
+          // Query untuk mengambil foto profil dari database
+          $query = "SELECT profilepict FROM users WHERE id_user = '$id_user'";
+          $result = mysqli_query($koneksi, $query);
+
+          // Cek apakah query berhasil dieksekusi dan ada hasil
+          if ($result && mysqli_num_rows($result) > 0) {
+            $row = mysqli_fetch_assoc($result);
+
+            // Cek apakah pengguna memiliki foto profil, jika tidak, gunakan default.png
+            $profilepict = (!empty($row['profilepict'])) ? "./public/uploads/user/" . $row['profilepict'] : "./public/uploads/user/default.png";
+          } else {
+            // Jika tidak ada hasil dari query atau pengguna belum memiliki foto profil
+            $profilepict = "./public/uploads/user/default.png";
+          }
+
+          // Tampilkan gambar profil
+          echo '<div class="dropdown">
+                  <a class="navbar-brand" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="' . htmlspecialchars($profilepict) . '" alt="pfp" id="pfp" class="rounded-circle" width="30" height="30">
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" id="pfpdr">
+                    <li><a class="dropdown-item" href="./src/forms/user/profile.php">Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="./src/function/logout.php">Logout</a></li>
+                  </ul>
+                </div>';
+        } else {
+          // Jika pengguna belum login, tampilkan tombol login dan register
+          echo '<div class="d-flex ms-auto">
+                  <a href="./src/forms/login.php" class="btn btn-login">Login</a>
+                  <a href="./src/forms/register.php" class="btn btn-register ms-2">Register</a>
+                </div>';
+        }
+        ?>
       </div>
     </div>
   </div>
 </nav>
+
 <!-- end navbar -->
 
 
@@ -164,7 +155,7 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
 <div class="card-categories row" data-aos="zoom-out-down">
     <?php
     $categories = [
-        ["name" => "Mobil", "image" => "./public/resource/banner/corolla.jpeg", "color" => "#1C7ED6"],
+        ["name" => "Mobil", "image" => "./public/resource/banner/corolla.jpeg", "color" => "#24252a"],
         ["name" => "Motor", "image" => "./public/resource/banner/motor.jpeg", "color" => "#F76707"],
         ["name" => "Sports Car", "image" => "./public/resource/banner/super.jpg", "color" => "#2F9E44"],
         ["name" => "Scooter", "image" => "./public/resource/banner/spooki.png", "color" => "#F59F00"]
@@ -197,9 +188,9 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     <div class="card vehicle-card">
       <img src="./public/resource/pajero.jpg" class="card-img-top" alt="Vehicle Image">
       <div class="card-body">
-        <h5 class="card-title">SUV</h5>
-        <p class="card-text">Explore the latest SUV models that offer a perfect blend of comfort and performance. Ideal for both city drives and off-road adventures.</p>
-        <a href="#" class="btn btn-primary btn-explore">Explore SUVs</a>
+        <h5 class="card-title">Panduan Umum</h5>
+        <p class="card-text">Lihat panduan membeli kendaraan bekas di online webstore</p>
+        <a href="#" class="btn btn-primary btn-explore">Pelajari</a>
       </div>
     </div>
   </div>
@@ -208,13 +199,14 @@ if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     <div class="card vehicle-card">
       <img src="./public/resource/JDM.jpeg" class="card-img-top" alt="Vehicle Image">
       <div class="card-body">
-        <h5 class="card-title">Sedan</h5>
-        <p class="card-text">Explore the latest SUV models that offer a perfect blend of comfort and performance. Ideal for both city drives and off-road adventures.</p>
-        <a href="#" class="btn btn-primary btn-explore">Explore SUVs</a>
+        <h5 class="card-title">Pelajari cara membeli kendaraan disini</h5>
+        <p class="card-text">Pelajari bagaimana sistem pembelian di website kami</p>
+        <a href="#" class="btn btn-primary btn-explore">Baca</a>
       </div>
     </div>
   </div>
 </div>
+
 </div>
 
 

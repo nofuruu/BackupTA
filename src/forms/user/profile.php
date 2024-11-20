@@ -62,17 +62,16 @@ if ($result && mysqli_num_rows($result) > 0) {
 }
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">NofuAuto</a>
+        <a class="navbar-brand" href="#">
+          <img src="../../../public/resource/logoB.png" alt="logo" id="dslogo">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="../home/home.php">Home</a>
-                </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="profile.php">My Profile</a>
                 </li>
@@ -88,9 +87,9 @@ if ($result && mysqli_num_rows($result) > 0) {
             <img src="<?php echo htmlspecialchars($profilepict); ?>?t=<?php echo time(); ?>" alt="pfp" class="img-fluid profile-image">
         </div>
         <div class="profile-info mt-3">
-            <h4 class="text-light">Username: <?php echo $username; ?></h4>
-            <p class="text-secondary">Email: <?php echo $email; ?></p>
-            <p class="text-secondary">Bergabung sejak: <?php echo $tanggal_bergabung; ?></p>
+            <h4 class="text"><?php echo $username; ?></h4>
+            <p class="text-secondary-black">Email: <?php echo $email; ?></p>
+            <p class="text-secondary-black">Bergabung sejak: <?php echo $tanggal_bergabung; ?></p>
         </div>
         <div class="action-buttons mt-4">
             <!-- Trigger the modal with this button -->

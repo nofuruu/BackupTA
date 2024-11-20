@@ -1,9 +1,8 @@
 body{
-    background-color: #24252a;
+    background-color: #ffffff;
     height: 100%; /* Full height for the page */
     margin: 0; /* Remove default margin */
     padding: 0;
-    background-color: #24252a;
     display: flex;
     flex-direction: column;
     font-family: 'Open Sans', sans-serif;
@@ -21,7 +20,7 @@ body{
 
 /* Navbar Styling */
 .navbar {
-    background-color: #1e1f26;
+    background-color: #ffffff;
     padding: 15px 0; /* Adjust padding for better spacing */
     font-family: 'Roboto', sans-serif; /* Clean and modern font */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
@@ -31,7 +30,7 @@ body{
 
 /* Navbar Links - Bold and Uppercase */
 .navbar-nav .nav-link {
-    color: #ffffff; /* White text for visibility */
+    color: #000000; /* White text for visibility */
     font-weight: bold; /* Make text bold */
     font-size: 0.9rem; /* Slightly smaller font size for clean look */
     padding: 10px 20px;
@@ -231,74 +230,93 @@ body{
 
 
     /* Card Container */
-.card {
-    background-color: #fff;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+/* Container untuk layout garage */
+#garage .container {
+    margin-top: 2rem;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* Styling card untuk item di garage */
+#garage .card {
+    border: none;
+    border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 20px;
-    cursor: pointer;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 10px;
 }
 
-/* Card Image */
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-/* Card Body */
-.card-body {
-    padding: 15px;
-}
-
-/* Card Title and Price */
-.card-title {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #333;
-    margin: 10px 0;
-}
-
-.card-price {
-    font-size: 1.2rem;
-    color: #FF6F61;
-    font-weight: bold;
-}
-
-/* Card Hover Effects */
-.card:hover {
+#garage .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.card:hover img {
+/* Styling gambar dalam card */
+#garage .card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border-radius: 8px 8px 0 0;
+}
+
+#garage .card-img-top:hover {
     transform: scale(1.05);
 }
 
-/* Remove Button (Icon) */
-.remove-btn {
+/* Card body styling */
+#garage .card-body {
+    padding: 15px;
+}
+
+#garage .card-title {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: bold;
+    margin: 0;
+}
+
+#garage .card-price {
+    font-size: 1rem;
+    color: #27ae60;
+    font-weight: bold;
+}
+
+/* Styling tombol hapus */
+#garage .remove-btn {
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 5px;
+    background-color: #ff4d4d;
+    color: #fff;
     border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.remove-btn i {
-    font-size: 1.5rem;
-    color: #c51313;
-    height: 1rem;
-    width: 1rem;
+#garage .remove-btn:hover {
+    background-color: #e60000;
 }
 
-.btn btn-danger{
-    height: auto;
-    width: 2px;
+#garage .remove-btn i {
+    font-size: 0.9rem;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+    #garage .card {
+        margin-bottom: 20px;
+    }
 }
 
 
@@ -335,3 +353,28 @@ body{
 }
 
 
+#savedIcon,
+#chatIcon {
+  font-size: 18px; /* Icon size */
+  color: #333; /* Icon color */
+  margin-right: 10px; /* Space between icons */
+  transition: color 0.3s ease;
+}
+
+#savedIcon:hover,
+#chatIcon:hover {
+  color: #E4405F; /* Change color on hover (example: Instagram color) */
+}
+
+#pfp {
+  margin-left: 10px; /* Space between profile picture and icons */
+}
+
+.navbar-nav {
+  flex-grow: 1;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}

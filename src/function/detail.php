@@ -43,6 +43,7 @@ $koneksi->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../public/css/detail.css"> <!-- Link to the CSS file -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Detail Kendaraan</title>
 </head>
 <body>
@@ -92,16 +93,51 @@ $koneksi->close();
             <div class="detail-item">
                 <strong>Deskripsi:</strong> <?php echo htmlspecialchars($row['deskripsi']); ?>
             </div>
-            <a href="javascript:history.back()" class="btn btn-custom">Kembali</a>
-
-            <!-- Form untuk menambahkan kendaraan ke garasi -->
             <form action="../function/add-to-garage.php" method="POST" class="mt-3">
                 <input type="hidden" name="id_kendaraan" value="<?php echo htmlspecialchars($id_kendaraan); ?>">
-                <button type="submit" class="btn btn-success">Tambahkan ke Garasi</button>
+                <button type="submit" class="btn btn-primary" id="btn-garasi">Tambahkan ke Garasi</button>
             </form>
+            <form action="../forms/user/checkout.php" method="POST" class="mt-3">
+                <input type="hidden" name="id_kendaraan" value="<?php echo htmlspecialchars($id_kendaraan); ?>">
+                <button type="submit" class="btn btn-secondary" id="btn-beli">Beli</button>
+            </form>
+            <br>
+            <a href="javascript:history.back()" class="btn btn-custom"><b>X</b></a>
+
+            <!-- Form untuk menambahkan kendaraan ke garasi -->
+
         </div>
     </div>
 </div>
+
+
+<footer>
+  <div class="footer-content">
+    <h3>NofuAuto</h3>
+    <p>lorem ipsum sing dolor sit amet
+    </p>
+    <ul class="socials">
+      <li><a href=""><i class="bi bi-facebook"></i></a></li>
+      <li><a href=""><i class="bi bi-twitter-x"></i></a></li>
+      <li><a href=""><i class="bi bi-instagram"></i></a></li>
+      <li><a href=""><i class="bi bi-github"></i></a></li>
+    </ul>
+  </div>
+
+  <div class="footer-bottom">
+    <p>copyright &copy;2024 nofuruu. designed by <span>Naufal Fatihul Ihsan</span></p>
+  </div>
+ </footer>
+
+
+
+
+
+
+
+
+
+
 
 <script>
 

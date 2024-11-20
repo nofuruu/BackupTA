@@ -128,10 +128,54 @@ deleteImage($folder);
     <div class="navbar-brand">
         <img src="../../../public/resource/logoA.png" alt="logo" id="dslogo">
     </div>
+
+    <?php
+if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
+  
+    $id_user = $_SESSION['id_user'];
+    
+    // Query untuk mengambil foto profil dari database
+    $query = "SELECT profilepict FROM users WHERE id_user = '$id_user'";
+    $result = mysqli_query($koneksi, $query);
+    
+    // Cek apakah query berhasil dieksekusi dan ada hasil
+    if ($result && mysqli_num_rows($result) > 0) {
+        $row = mysqli_fetch_assoc($result);
+        
+        // Cek apakah pengguna memiliki foto profil, jika tidak, gunakan default.png
+        $profilepict = (!empty($row['profilepict'])) ? "../../../public/uploads/user/" . $row['profilepict'] : "../../../public/uploads/user/default.png";
+    } else {
+        // Jika tidak ada hasil dari query atau pengguna belum memiliki foto profil
+        $profilepict = "../../../public/uploads/user/default.png";
+    }
+    
+    // Tampilkan gambar profil
+    echo '<div class="d-flex ms-auto">
+    <div class="dropdown">
+        <a class="navbar-brand" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="' . htmlspecialchars($profilepict) . '" alt="pfp" id="pfp" class="rounded-circle" width="30" height="30">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" id="pfpdr">
+            <li><a class="dropdown-item" href="./src/forms/user/profile.php">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="./src/function/logout.php">Logout</a></li>
+            
+        </ul>
+    </div>
+  </div>';
+} else {
+    // Jika pengguna belum login, tampilkan tombol login dan register
+    echo '<div class="d-flex ms-auto">
+            <a href="./src/forms/login.php" class="btn btn-login">Login</a>
+            <a href="./src/forms/register.php" class="btn btn-register ms-2">Register</a>
+          </div>';
+}
+?>
+
+
     <ul>
 
-          <li><a href="#" onclick="showContent('Home')" id="link-website"><i class="fas fa-home"></i> Home</a></li>
-
+        <li><a href="#" onclick="showContent('home')" id="link-website"><i class="fas fa-home"></i> Home</a></li>
         <li><a href="#" onclick="showContent('website')" id="link-website"><i class="fas fa-globe"></i> Website</a></li>
         <li><a href="#" onclick="showContent('user')" id="link-user"><i class="fas fa-user"></i> User</a></li>
         <li><a href="#" onclick="showContent('module')" id="link-module"><i class="fas fa-cart-plus"></i> Post Items</a></li>
@@ -146,6 +190,25 @@ deleteImage($folder);
 
     <div class="content">
         <!-- Dynamic Content Area -->
+
+        <div id="home" class="content-section" style="display:none;">
+            <h1>Welcome to admin page .. </h1>
+           
+
+</div>    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <div id="website" class="content-section" style="display:none;">
             <h1>Website Content</h1>
@@ -651,7 +714,7 @@ function viewAllPhotos(fotos) {
 
     document.addEventListener("DOMContentLoaded", function () {
     // Tampilkan div Home sebagai default
-    showContent('Home');
+    showContent('home');
 });
 
 function showContent(sectionId) {

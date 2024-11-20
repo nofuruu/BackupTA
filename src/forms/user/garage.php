@@ -15,13 +15,45 @@
 <?php
 include '../../../koneksi.php';
 
-session_start();
+$folder = '../../../public/resource/carousels/'; // Folder tempat menyimpan gambar
 
-// Pastikan sesi `id_user` ada
-if (!isset($_SESSION['id_user'])) {
-    echo "Anda harus login terlebih dahulu.";
-    exit;
+session_start();
+//mengecek apakah user atau admin yang masuk ke form
+if (!isset($_SESSION['login']) || !isset($_SESSION['role']) || !in_array($_SESSION['role'], ['admin', 'superadmin', 'user'])) {
+    echo '
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <div class="modal fade" id="accessDeniedModal" tabindex="-1" role="dialog" aria-labelledby="accessDeniedModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="accessDeniedModalLabel">Login Terlebih Dahulu</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Anda belum login, lakukan register atau login bila sudah memiliki akun
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" onclick="window.location.href=\'../login.php\'">Masuk</button>
+                    <button type="button" class="btn btn-success" onclick="window.location.href=\'../../../home.php\'">Kembali ke Beranda</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            $("#accessDeniedModal").modal("show");
+        });
+    </script>
+    ';
+    exit();
 }
+
+
 
 $id_user = $_SESSION['id_user'];
 
@@ -37,7 +69,7 @@ $result = $stmt->get_result();
 <nav class="navbar navbar-expand-lg" style="position:fixed; width: 100%; z-index: 10  ;">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">
-      <img src="../../../public/resource/logoA.png" alt="dslogo" id="dslogo">
+      <img src="../../../public/resource/logoB.png" alt="dslogo" id="dslogo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -55,25 +87,6 @@ $result = $stmt->get_result();
           <a class="nav-link" href="../../forms/user/store-page.php">marketplace</a>
         </li>
         <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-    Lainya...
-  </a>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Garasi Saya</a></li>
-    <li><a class="dropdown-item" href="../user/profile.php">Edit Profile</a></li>
-    
-    <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
-        // Ambil informasi peran dari sesi
-        $role = $_SESSION['role']; // Misalkan peran disimpan dalam sesi
-
-        // Cek apakah pengguna adalah admin atau superadmin
-        if ($role === 'admin' || $role === 'superadmin') {
-            echo '<li><a class="dropdown-item" href="../admin/admin.php">Pergi ke Halaman Admin</a></li>';
-        }
-    }
-   ?>
-  </ul>
-</li>
 
       </ul>
       
@@ -110,7 +123,7 @@ $result = $stmt->get_result();
             <img src="' . htmlspecialchars($profilepict) . '" alt="pfp" id="pfp" class="rounded-circle" width="30" height="30">
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown" id="pfpdr">
-            <li><a class="dropdown-item" href="./src/forms/user/profile.php">Profile</a></li>
+            <li><a class="dropdown-item" href="./profile.php">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="./src/function/logout.php">Logout</a></li>
             
@@ -135,7 +148,6 @@ $result = $stmt->get_result();
 
 <!-- garage items -->
 <div id="garage" class="content-section" style="margin-top: 70px;">
-    <h1 class="text-center mb-4">Garasi Saya</h1>
     <div class="container">
         <div class="row">
             <?php

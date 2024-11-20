@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-    background-color: #24252a;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     font-family: 'Open Sans', sans-serif;
@@ -18,16 +18,17 @@ body {
 
 /* Navbar Styling */
 .navbar {
-    background-color: #1e1f26;
+    background-color: hsl(0, 0%, 100%);
     padding: 15px 0; /* Adjust padding for better spacing */
     font-family: 'Roboto', sans-serif; /* Clean and modern font */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    
 }
 
 /* Navbar Links - Bold and Uppercase */
 .navbar-nav .nav-link {
-    color: #ffffff; /* White text for visibility */
+    color: #000000; /* White text for visibility */
     font-weight: bold; /* Make text bold */
     font-size: 0.9rem; /* Slightly smaller font size for clean look */
     padding: 10px 20px;
@@ -43,6 +44,7 @@ body {
     background-color: transparent; /* No background change on hover */
 }
 
+
 .navbar-nav .nav-link::after {
     content: '';
     position: absolute;
@@ -53,6 +55,7 @@ body {
     bottom: 0;
     transition: width 0.3s ease, left 0.3s ease;
 }
+
 
 .navbar-nav .nav-link:hover::after {
     width: 100%;
@@ -94,28 +97,86 @@ body {
 }
 
 /* Card Styling */
-.card {
-    background-color: #ffffff; /* Dark background for cards */
-    border: none; /* No border */
-    border-radius: 10px; /* Rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-    overflow: hidden; /* Ensure images fit nicely */
+/* Styling container untuk layout marketplace */
+#marketplace .container {
+    max-width: 1200px;
+    padding: 20px;
 }
 
-.card:hover {
-    transform: translateY(-5px); /* Slight lift on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+/* Card styling dengan shadow lembut dan border tipis */
+#marketplace .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    padding: 15px;
 }
 
-.card-img-top {
-    width: 100%; /* Full width for image */
-    height: 200px; /* Set height for uniformity */
-    object-fit: cover; /* Ensure image covers area without distortion */
+#marketplace .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Card Body Styling */
-.card-body {
-    padding: 15px; /* Padding for card content */
+/* Styling untuk gambar dalam card */
+#marketplace .card-img-top {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+/* Card body styling */
+#marketplace .card-body {
+    padding-top: 10px;
+}
+
+#marketplace .card-title {
+    font-size: 1.1rem;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+#marketplace .card-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+/* Harga styling */
+#marketplace .card-price {
+    font-size: 1rem;
+    color: #27ae60;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Button styling */
+#marketplace .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    text-align: center;
+    font-weight: 500;
+}
+
+#marketplace .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+    #marketplace .card {
+        margin-bottom: 20px;
+    }
 }
 
 /* Button Styles */
@@ -133,7 +194,7 @@ body {
 /* Login Button Styles */
 .btn-login {
     background-color: transparent; /* Transparent background */
-    color: #ffffff; /* White text */
+    color: #ff0808; /* White text */
     border: 2px solid #ff4c4c; /* Red border */
 }
 
@@ -196,3 +257,4 @@ nav #navbar-kategori{
     position:fixed;
     z-index: 9999;
 }
+

@@ -3,7 +3,7 @@ body {
     height: 100%; /* Full height for the page */
     margin: 0; /* Remove default margin */
     padding: 0;
-    background-color: #24252a;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     font-family: 'Open Sans', sans-serif;
@@ -17,7 +17,7 @@ body {
 
 /* Navbar Styling */
 .navbar {
-    background-color: #1e1f26;
+    background-color: #ffffff;
     padding: 15px 0; /* Adjust padding for better spacing */
     font-family: 'Roboto', sans-serif; /* Clean and modern font */
     border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle bottom border */
@@ -26,7 +26,7 @@ body {
 
 /* Navbar Links - Bold and Uppercase */
 .navbar-nav .nav-link {
-    color: #ffffff; /* White text for visibility */
+    color: #000000; /* White text for visibility */
     font-weight: bold; /* Make text bold */
     font-size: 0.9rem; /* Slightly smaller font size for clean look */
     padding: 10px 20px;
@@ -121,7 +121,7 @@ body {
 /* Login Button Styles */
 .btn-login {
     background-color: transparent; /* Transparent background */
-    color: #ffffff; /* White text */
+    color: #ff4c4c; /* White text */
     border: 2px solid #ff4c4c; /* Red border */
     /* margin-left: 430px; */
 }
@@ -258,7 +258,7 @@ footer {
     height: 50px; /* Atur tinggi sesuai keinginan */
     border-radius: 50%; /* Membuat gambar menjadi bulat */
     object-fit: cover; /* Memastikan gambar terpotong dengan baik dalam bentuk bulat */
-    border: 2px solid #fff; /* Opsional: Menambahkan border putih */
+    border: 2px solid #000000; /* Opsional: Menambahkan border putih */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan efek bayangan */
 }
 
@@ -280,17 +280,13 @@ footer {
 
 
 .discover-header {
-    padding: 15px 0; /* Padding lebih kecil */
-    color: white; /* Warna teks putih */
-    border-radius: 8px; /* Sudut melengkung */
-    margin: 10px 0; /* Margin yang lebih kecil */
     text-align: center; /* Rata tengah teks */
 }
 
 .discover-header h1 {
     font-size: 2rem; /* Ukuran font lebih kecil */
     font-weight: 700; /* Bold */
-    text-transform: uppercase; /* Huruf kapital */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     letter-spacing: 1.5px; /* Jarak antar huruf */
     margin: 0; /* Tanpa margin tambahan */
 }
@@ -325,7 +321,7 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 20rem;
     height: 100%;
     background: rgba(0, 0, 0, 0.4);
     opacity: 0.7;
@@ -398,7 +394,7 @@ footer {
 }
 
 .card-body {
-    text-transform: uppercase; /* Semua teks dalam huruf kapital */
+    text-transform:capitalize; /* Semua teks dalam huruf kapital */
 }
 
 .card-title, .card-text {
@@ -415,6 +411,7 @@ footer {
 
 .carousel-inner {
   height: 100vh;
+  width: 100%;
 }
 
 .hero-overlay-text {
@@ -543,4 +540,16 @@ footer {
 .btn-explore:hover {
     background-color: #e03a3a;
     transform: scale(1.05); /* Slight scaling effect */
+}
+
+.icon-heart, .icon-chat {
+    width: 40px; /* Ukuran lebar */
+    height: 40px; /* Ukuran tinggi */
+    object-fit: contain; /* Untuk menjaga proporsi gambar */
+    transition: transform 0.3s ease; /* Animasi saat hover */
+    margin: 2px;
+}
+
+.icon-heart:hover, .icon-chat:hover {
+    transform: scale(1.2); /* Membesarkan ikon saat di-hover */
 }

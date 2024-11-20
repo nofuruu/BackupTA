@@ -116,3 +116,39 @@ body {
         transform: scale(1.05);
     }
     
+
+
+
+#dslogo{
+    width: auto;
+    height: 4rem;
+    justify-content: flex-start;
+}
+
+#pfp {
+    width: 50px; /* Atur lebar sesuai keinginan */
+    height: 50px; /* Atur tinggi sesuai keinginan */
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    object-fit: cover; /* Memastikan gambar terpotong dengan baik dalam bentuk bulat */
+    border: 2px solid #fff; /* Opsional: Menambahkan border putih */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opsional: Menambahkan efek bayangan */
+    justify-content: center;
+    align-items: flex-end;
+    margin-left: 5rem;
+}
+
+
+#pfpdr {
+    min-width: 150px;
+    z-index: 1000;
+    transform: translateY(10px); /* Sedikit penyesuaian untuk posisi dropdown */
+    margin-left: 10rem;
+}
+
+/* Styling khusus untuk layar kecil */
+* {
+    border: 0;
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
