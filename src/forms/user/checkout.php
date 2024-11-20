@@ -85,80 +85,59 @@ $koneksi->close();
 </div>
 
 <!-- Additional items for Transfer Bank -->
+<!-- Dropdown Nama Bank -->
 <div id="bank-details" class="additional-items" style="display: none;">
     <div class="mb-3">
         <label for="bank_name" class="form-label">Nama Bank</label>
         <select class="form-control" id="bank_name" name="bank_name">
-            <option value="bca">
-                <img src="../../../public/resource/icons/bca.png" alt="BCA" style="width: 10rem; height: 5rem; margin-right: 10px;"> BCA
-            </option>
-            <option value="mandiri">
-                <img src="../../../public/resource/icons/mandiri.png" alt="Mandiri" style="width: 10rem; height: 5rem; margin-right: 10px;"> Mandiri
-            </option>
-            <option value="bni">
-                <img src="../../../public/resource/icons/bni.png" alt="BNI" style="width: 10rem; height: 5rem; margin-right: 10px;"> BNI
-            </option>
-            <option value="bri">
-                <img src="../../../public/resource/icons/bri.png" alt="BRI" style="width: 10rem; height: 5rem; margin-right: 10px;"> BRI
-            </option>
+            <option value="bca" data-image="../../../public/resource/icons/bca.png">BCA</option>
+            <option value="mandiri" data-image="../../../public/resource/icons/mandiri.png">Mandiri</option>
+            <option value="bni" data-image="../../../public/resource/icons/bni.png">BNI</option>
+            <option value="bri" data-image="../../../public/resource/icons/bri.png">BRI</option>
         </select>
     </div>
 </div>
 
-<!-- Additional items for Kartu Kredit -->
+<!-- Dropdown Jenis Kartu Kredit -->
 <div id="credit-card-details" class="additional-items" style="display: none;">
     <div class="mb-3">
         <label for="credit_card_type" class="form-label">Jenis Kartu Kredit</label>
         <select class="form-control" id="credit_card_type" name="credit_card_type">
-            <option value="visa">
-                <img src="../../../public/resource/icons/visa.png" alt="Visa" style="width: 10rem; height: 5rem; margin-right: 10px;"> Visa
-            </option>
-            <option value="mastercard">
-                <img src="../../../public/resource/icons/mastercard.png" alt="MasterCard" style="width: 10rem; height: 5rem; margin-right: 10px;"> MasterCard
-            </option>
-            <option value="american_express">
-                <img src="../../../public/resource/icons/american_express.png" alt="American Express" style="width: 10rem; height: 5rem; margin-right: 10px;"> American Express
-            </option>
+            <option value="visa" data-image="../../../public/resource/icons/visa.png">Visa</option>
+            <option value="mastercard" data-image="../../../public/resource/icons/mastercard.png">MasterCard</option>
+            <option value="american_express" data-image="../../../public/resource/icons/american_express.png">American Express</option>
         </select>
     </div>
 </div>
 
-<!-- Additional items for E-Wallet -->
+<!-- Dropdown E-Wallet -->
 <div id="wallet-details" class="additional-items" style="display: none;">
     <div class="mb-3">
         <label for="wallet_type" class="form-label">Pilih E-Wallet</label>
         <select class="form-control" id="wallet_type" name="wallet_type">
-            <option value="ovo">
-                <img src="../../../public/resource/icons/ovo.png" alt="OVO" style="width: 10rem; height: 5rem; margin-right: 10px;"> OVO
-            </option>
-            <option value="gopay">
-                <img src="../../../public/resource/icons/gopay.png" alt="GoPay" style="width: 10rem; height: 5rem; margin-right: 10px;"> GoPay
-            </option>
-            <option value="dana">
-                <img src="../../../public/resource/icons/dana.png" alt="DANA" style="width: 10rem; height: 5rem; margin-right: 10px;"> DANA
-            </option>
+            <option value="ovo" data-image="../../../public/resource/icons/ovo.png">OVO</option>
+            <option value="gopay" data-image="../../../public/resource/icons/gopay.png">GoPay</option>
+            <option value="dana" data-image="../../../public/resource/icons/dana.png">DANA</option>
         </select>
     </div>
 </div>
+
 
 <!-- Additional items for Delivery Method -->
 <div id="delivery-method" class="additional-items" style="display: none;">
     <div class="mb-3">
         <label for="metode_pengiriman" class="form-label">Metode Pengiriman Kendaraan</label>
         <select class="form-control" id="metode_pengiriman" name="metode_pengiriman" required>
-            <option value="kurir">Kurir Kendaraan</option>
-            <option value="ambil_sendiri">Ambil Sendiri</option>
-        </select>
+    <option value="kurir" data-image="../../../public/resource/icons/towing.png" style="width: 10rem; height: 5rem; margin-right: 10px;">
+        Towing kendaraan (Jasa Aplikasi)
+        </option>
+        <option value="ambil_kendaraan" data-image="../../../public/resource/icons/gerai.png" style="width: 10rem; height: 5rem; margin-right: 10px;">
+            Ambil Kendaraan di gerai dan cek fisik kendaraan secara langsung
+        </option>
+    </select>
     </div>
 </div>
 
-<!-- Field for Postal Code (Only for Ojek Online or Kurir) -->
-<div id="postal-code" class="additional-items" style="display: none;">
-    <div class="mb-3">
-        <label for="kode_pos" class="form-label">Kode Pos</label>
-        <input type="text" class="form-control" id="kode_pos" name="kode_pos" placeholder="Masukkan Kode Pos">
-    </div>
-</div>
 
 <button type="submit" class="btn btn-success">Proses Pembayaran</button>
 <a href="javascript:history.back()" class="btn btn-secondary">Kembali</a>
@@ -200,66 +179,75 @@ metodePembayaran.addEventListener('change', function() {
     }
 });
 </script>
-<script>
-    // Event listener ketika nilai metode pengiriman berubah
-document.getElementById('metode_pengiriman').addEventListener('change', function() {
-    // Sembunyikan kode pos terlebih dahulu
-    postalCode.style.display = 'none';
 
-    // Tampilkan kode pos jika memilih Ojek Online atau Kurir
-    if (this.value === 'ojek_online' || this.value === 'kurir') {
-        postalCode.style.display = 'block';
+
+<script>
+  $(document).ready(function() {
+    function formatOption(state) {
+        if (!state.id) {
+            return state.text; // Placeholder case
+        }
+
+        // Ambil path gambar dari atribut `data-image`
+        var imgUrl = $(state.element).data('image');
+        var $state = $(
+            '<span><img src="' + imgUrl + '" style="width: 50px; height: 50px; margin-right: 10px;">' + state.text + '</span>'
+        );
+        return $state;
+    }
+
+    // Inisialisasi Select2 dengan template untuk Bank
+    $('#bank_name').select2({
+        templateResult: formatOption,
+        templateSelection: formatOption,
+        placeholder: "Pilih Bank",
+        allowClear: true
+    });
+
+    // Inisialisasi Select2 dengan template untuk Kartu Kredit
+    $('#credit_card_type').select2({
+        templateResult: formatOption,
+        templateSelection: formatOption,
+        placeholder: "Pilih Jenis Kartu Kredit",
+        allowClear: true
+    });
+
+    // Inisialisasi Select2 dengan template untuk E-Wallet
+    $('#wallet_type').select2({
+        templateResult: formatOption,
+        templateSelection: formatOption,
+        placeholder: "Pilih E-Wallet",
+        allowClear: true
+    });
+});
+
+</script>
+
+<script>
+    $('#metode_pengiriman').select2({
+    templateResult: function(state) {
+        if (!state.id) {
+            return state.text; // Return default text for placeholder
+        }
+        var imgUrl = $(state.element).data('image');
+        var $state = $(
+            '<span><img src="' + imgUrl + '" style="width: 50px; height: 50px; margin-right: 10px;">' + state.text + '</span>'
+        );
+        return $state;
+    },
+    templateSelection: function(state) {
+        if (!state.id) {
+            return state.text; // Default for selected item
+        }
+        var imgUrl = $(state.element).data('image');
+        var $state = $(
+            '<span><img src="' + imgUrl + '" style="width: 30px; height: 30px; margin-right: 10px;">' + state.text + '</span>'
+        );
+        return $state;
     }
 });
-</script>
-<script>
-   $(document).ready(function() {
-    // Initialize Select2 for all dropdowns with images
-    $('#wallet_type').select2({
-        templateResult: function(state) {
-            // Show image with text for wallet type
-            if (!state.id) {
-                return state.text;
-            }
-            var $state = $('<span><img src="../../../public/resource/icons/' + state.element.value.toLowerCase() + '.png" style="width: 50px; height: 50px; margin-right: 10px;"> ' + state.text + '</span>');
-            return $state;
-        }
-    });
-
-    $('#bank_name').select2({
-        templateResult: function(state) {
-            // Show image with text for bank names
-            if (!state.id) {
-                return state.text;
-            }
-            var $state = $('<span><img src="../../../public/resource/icons/' + state.element.value.toLowerCase() + '.png" style="width: 50px; height: 50px; margin-right: 10px;"> ' + state.text + '</span>');
-            return $state;
-        }
-    });
-
-    $('#credit_card_type').select2({
-        templateResult: function(state) {
-            // Show image with text for credit card types
-            if (!state.id) {
-                return state.text;
-            }
-            var $state = $('<span><img src="../../../public/resource/icons/' + state.element.value.toLowerCase() + '.png" style="width: 50px; height: 50px; margin-right: 10px;"> ' + state.text + '</span>');
-            return $state;
-        }
-    });
-
-    $('#metode_pengiriman').select2({
-        templateResult: function(state) {
-            // Show image with text for delivery methods (if necessary)
-            return state.text;
-        }
-    });
-});
 
 </script>
-
-
-
 
 </script>
 </body>

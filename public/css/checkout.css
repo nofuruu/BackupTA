@@ -1,29 +1,85 @@
+/* Styling untuk Select2 - box luar (single select) */
+.select2-container--default .select2-selection--single {
+    width: 25rem !important; /* Lebar box Select2 */
+    height: 5rem; /* Tinggi box Select2 */
+    padding: 0.5rem 1rem; /* Padding di dalam box */
+    border: 1px solid #ccc; /* Warna border */
+    border-radius: 8px; /* Membuat sudut box melengkung */
+    background-color: #f9f9f9; /* Warna background */
+    display: flex; /* Membuat layout rapi */
+    align-items: center; /* Tengah secara vertikal */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
 
-    /* Memperlebar Select2 agar lebih lebar */
-    .select2-container--default .select2-selection--single {
-        width: 25rem !important; /* Lebar yang lebih besar, bisa disesuaikan sesuai kebutuhan */
-    }
+/* Styling teks yang dipilih */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #333; /* Warna teks */
+    font-size: 1.2rem; /* Ukuran teks */
+    display: flex;
+    align-items: center; /* Membuat teks sejajar dengan gambar */
+    gap: 10px; /* Jarak antara gambar dan teks */
+    white-space: normal; /* Mengizinkan teks membungkus */
+    overflow: hidden; /* Menyembunyikan konten yang melebihi batas */
+    text-overflow: ellipsis; /* Menambahkan "..." jika teks terlalu panjang */
+    word-wrap: break-word; /* Memastikan teks panjang diputus sesuai lebar */
+    max-height: 4rem; /* Batas maksimal tinggi kontainer teks */
+}
 
-    /* Styling untuk tinggi dan padding dropdown */
-    .select2-container .select2-selection--single {
-        height: 5rem; /* Tinggi yang lebih tinggi agar gambar lebih jelas terlihat */
-        padding-left: 1rem;  /* Memberikan jarak lebih pada sisi kiri */
-        padding-right: 1rem; /* Memberikan jarak lebih pada sisi kanan */
-    }
 
-    /* Menyesuaikan gambar di dalam dropdown */
-    .select2-container--default .select2-results__option img {
-        width: 12rem;  /* Lebar gambar yang lebih besar */
-        height: 6rem;  /* Tinggi gambar yang lebih besar */
-        margin-right: 1rem; /* Memberikan jarak antar gambar dan teks */
-        object-fit: contain; /* Menjaga proporsi gambar */
-    }
+/* Styling ikon dropdown */
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666; /* Warna ikon panah */
+}
 
-    /* Styling untuk teks di dalam dropdown, memastikan gambar dan teks sejajar */
-    .select2-container--default .select2-results__option {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 1rem; /* Menambahkan padding pada setiap pilihan */
-    }
+/* Styling dropdown saat di klik */
+.select2-container--default .select2-dropdown {
+    border: 1px solid #ccc; /* Border dropdown */
+    border-radius: 8px; /* Melengkungkan dropdown */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Efek bayangan */
+    background-color: #fff; /* Warna background dropdown */
+    padding: 0.5rem 0; /* Jarak di dalam dropdown */
+    font-size: 1.1rem; /* Ukuran font */
+}
 
+/* Styling untuk setiap opsi di dropdown */
+.select2-container--default .select2-results__option {
+    padding: 1rem; /* Padding pada setiap opsi */
+    display: flex; /* Layout gambar + teks */
+    align-items: center; /* Sejajar vertikal */
+    gap: 10px; /* Jarak antara gambar dan teks */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Animasi hover */
+}
+
+/* Gambar di dalam dropdown */
+.select2-container--default .select2-results__option img {
+    width: 40px; /* Lebar gambar */
+    height: 40px; /* Tinggi gambar */
+    object-fit: contain; /* Menjaga proporsi gambar */
+    border-radius: 4px; /* Jika ingin gambar sedikit melengkung */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+}
+
+/* Hover efek pada opsi dropdown */
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #f0f0f0; /* Warna saat opsi dihover */
+    color: #333; /* Warna teks saat hover */
+}
+
+/* Gambar yang ditampilkan di box luar */
+.select2-container--default .select2-selection--single .select2-selection__rendered img {
+    width: 40px; /* Ukuran gambar */
+    height: 40px;
+    object-fit: contain; /* Menjaga proporsi */
+    margin-right: 10px; /* Jarak gambar dan teks */
+}
+
+/* Placeholder styling */
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+    color: #aaa; /* Warna placeholder */
+    font-style: italic; /* Gaya font untuk placeholder */
+}
